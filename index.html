@@ -1,0 +1,1436 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WEATHER APP</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mobile.css" />
+    <script defer src="script.js"></script>
+    <script defer src="dashboard.js"></script>
+  </head>
+
+  <body>
+    <!-- settings starts-->
+
+    <div id="settings_container" class="settings_container">
+      <div id="settings">
+        <div id="settings_pane">
+          <button class="mobile-back-btn" id="settings_back_btn">← Back</button>
+          <h2>Settings</h2>
+          <ul id="settings_navigation">
+            <li id="settings_display" class="set_nav active">Display</li>
+            <li id="settings_Theme" class="set_nav">Theme</li>
+            <li id="settings_Account" class="set_nav">Account</li>
+            <li id="settings_City" class="set_nav">City</li>
+          </ul>
+        </div>
+        <div class="sep"></div>
+        <div id="settings_main">
+          <!-- display settings section  -->
+
+          <div id="display">
+            <div class="section_header">
+              <h2>Display Settings</h2>
+              <button class="close_btn">✕</button>
+            </div>
+
+            <ul id="display_settings_main" class="display_settings_main">
+              <p id="sub_section_display">Measurement Units</p>
+              <br />
+              <li class="display_settings_item" id="setting_temp">
+                <label for="temperature">Temperature Unit</label>
+                <select name="temperature" id="temperature_input">
+                  <option value="celsius" selected>Celsius (°C)</option>
+                  <option value="fahrenheit">Fahrenheit (°F)</option>
+                </select>
+              </li>
+              <li class="display_settings_item" id="setting_windspeed">
+                <label for="windspeed">Wind Speed Unit</label>
+                <select name="windspeed" id="windspeed_input">
+                  <option value="kmh" selected>km/h</option>
+                  <option value="mph">mph</option>
+                  <option value="ms">m/s</option>
+                  <option value="knots">Knots</option>
+                </select>
+              </li>
+              <li class="display_settings_item" id="setting_precipitation">
+                <label for="precipitation">Precipitation Unit</label>
+                <select name="precipitation" id="precipitation_input">
+                  <option value="mm" selected>Millimeters (mm)</option>
+                  <option value="in">Inches (in)</option>
+                </select>
+              </li>
+              <li class="display_settings_item" id="setting_pressure">
+                <label for="pressure">Pressure Unit</label>
+                <select name="pressure" id="pressure_input">
+                  <option value="hpa" selected>Hectopascals (hPa)</option>
+                  <option value="inhg">Inches of Mercury (inHg)</option>
+                  <option value="mmhg">Millimeters (mmHg)</option>
+                  <option value="mbar">Millibars (mbar)</option>
+                </select>
+              </li>
+            </ul>
+            <ul id="display_settings_main" class="display_settings_main">
+              <p id="sub_section_display">Date and TIme Format</p>
+              <br />
+              <li class="display_settings_item" id="setting_date">
+                <label for="date_format">Date Format</label>
+                <select name="date_format" id="date_format_input">
+                  <option value="DD/MM/YYYY" selected>DD/MM/YYYY</option>
+                  <option value="MM/DD/YYYY">MM/DD/YYYY</option>
+                  <option value="YYYY/MM/DD">YYYY/MM/DD</option>
+                </select>
+              </li>
+              <li class="display_settings_item" id="setting_time">
+                <label for="time_format">TIme Format</label>
+                <select name="time_format" id="time_format_input">
+                  <option value="12h" selected>12-Hour (1:00 PM)</option>
+                  <option value="24h">24-Hour (13:00)</option>
+                </select>
+              </li>
+            </ul>
+          </div>
+
+          <!-- theme display section  -->
+
+          <div id="theme">
+            <div class="section_header">
+              <h2>Theme Settings</h2>
+              <button class="close_btn">✕</button>
+            </div>
+
+            <ul id="theme_settings_main" class="display_settings_main">
+              <p id="sub_section_display">Appearance</p>
+              <br />
+              <li class="display_settings_item" id="setting_theme_mode">
+                <label for="theme_mode">Theme Mode</label>
+                <select name="theme_mode" id="theme_mode_input">
+                  <option value="auto" selected>Auto (System)</option>
+                  <option value="dark">Dark</option>
+                  <option value="light">Light</option>
+                </select>
+              </li>
+              <li class="display_settings_item" id="setting_accent_color">
+                <label for="accent_color">Accent Color</label>
+                <select name="accent_color" id="accent_color_input">
+                  <option value="blue" selected>Blue</option>
+                  <option value="purple">Purple</option>
+                  <option value="cyan">Cyan</option>
+                  <option value="green">Green</option>
+                </select>
+              </li>
+            </ul>
+            <ul id="theme_settings_main" class="display_settings_main">
+              <p id="sub_section_display">Font & Display</p>
+              <br />
+              <li class="display_settings_item" id="setting_font_size">
+                <label for="font_size">Font Size</label>
+                <select name="font_size" id="font_size_input">
+                  <option value="small">Small</option>
+                  <option value="medium" selected>Medium</option>
+                  <option value="large">Large</option>
+                </select>
+              </li>
+              <li class="display_settings_item" id="setting_animation">
+                <label for="animation">Enable Animations</label>
+                <select name="animation" id="animation_input">
+                  <option value="enabled" selected>Enabled</option>
+                  <option value="disabled">Disabled</option>
+                </select>
+              </li>
+            </ul>
+          </div>
+
+          <!-- account settings section -->
+
+          <div id="account">
+            <div class="section_header">
+              <h2>Account Settings</h2>
+              <button class="close_btn">✕</button>
+            </div>
+
+            <ul id="account_settings_main">
+              <p id="sub_section_display">Account Information</p>
+              <br />
+              <li class="display_settings_item" id="setting_email">
+                <label for="email">Email Address</label>
+                <select name="email" id="email_input">
+                  <option value="not_set" selected>Not Set</option>
+                  <option value="add">Add Email</option>
+                </select>
+              </li>
+              <li class="display_settings_item" id="setting_language">
+                <label for="language">Language</label>
+                <select name="language" id="language_input">
+                  <option value="en" selected>English</option>
+                  <option value="es">Spanish</option>
+                  <option value="fr">French</option>
+                  <option value="de">German</option>
+                </select>
+              </li>
+            </ul>
+            <ul id="account_settings_main">
+              <p id="sub_section_display">Notifications</p>
+              <br />
+              <li class="display_settings_item" id="setting_alerts">
+                <label for="alerts">Weather Alerts</label>
+                <select name="alerts" id="alerts_input">
+                  <option value="enabled" selected>Enabled</option>
+                  <option value="disabled">Disabled</option>
+                </select>
+              </li>
+              <li class="display_settings_item" id="setting_daily_updates">
+                <label for="daily_updates">Daily Updates</label>
+                <select name="daily_updates" id="daily_updates_input">
+                  <option value="enabled" selected>Enabled</option>
+                  <option value="disabled">Disabled</option>
+                </select>
+              </li>
+            </ul>
+          </div>
+
+          <!-- city settings section  -->
+
+          <div id="city">
+            <div class="section_header">
+              <h2>City Settings</h2>
+              <button class="close_btn">✕</button>
+            </div>
+
+            <ul id="city_settings_main">
+              <p id="sub_section_display">Location Preferences</p>
+              <br />
+              <li class="display_settings_item" id="setting_default_city">
+                <label for="default_city">Default City</label>
+                <select name="default_city" id="default_city_input">
+                  <option value="current" selected>Current Location</option>
+                  <option value="new_york">New York</option>
+                  <option value="london">London</option>
+                  <option value="tokyo">Tokyo</option>
+                </select>
+              </li>
+              <li
+                class="display_settings_item"
+                id="setting_location_permission"
+              >
+                <label for="location_permission">Use GPS Location</label>
+                <select
+                  name="location_permission"
+                  id="location_permission_input"
+                >
+                  <option value="enabled" selected>Enabled</option>
+                  <option value="disabled">Disabled</option>
+                </select>
+              </li>
+            </ul>
+            <ul id="city_settings_main">
+              <p id="sub_section_display">City List</p>
+              <br />
+              <li class="display_settings_item" id="setting_saved_cities">
+                <label for="saved_cities">Saved Cities</label>
+                <select name="saved_cities" id="saved_cities_input">
+                  <option value="view" selected>View All</option>
+                  <option value="add">Add New City</option>
+                  <option value="manage">Manage Cities</option>
+                </select>
+              </li>
+              <li class="display_settings_item" id="setting_auto_detect">
+                <label for="auto_detect">Auto-Detect Location</label>
+                <select name="auto_detect" id="auto_detect_input">
+                  <option value="enabled" selected>Enabled</option>
+                  <option value="disabled">Disabled</option>
+                </select>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- settings ends -->
+
+    <!-- profile popup start -->
+
+    <div id="profile_popup_container" class="profile_popup_container">
+      <div id="profile_popup">
+        <h1 id="profile_settings">Profile Settings</h1>
+        <div class="profile_top">
+          <button id="change_profile_pic">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"
+              ></path>
+              <circle cx="12" cy="13" r="3"></circle>
+            </svg>
+            <img id="profile_image" src="" alt="" />
+            <div class="edit" id="edit">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                opacity="0.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                ></path>
+                <path
+                  d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                ></path>
+              </svg>
+            </div>
+          </button>
+          <input
+            id="profile_pic_input"
+            type="file"
+            accept="image/*"
+            style="display: none"
+          />
+          <div id="cropModal" class="modal">
+            <div class="modal-content">
+              <div class="image-container">
+                <img id="imageToCrop" src="" />
+              </div>
+              <button id="cropButton">Crop & Save</button>
+              <button id="closeModal">Cancel</button>
+            </div>
+          </div>
+
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css"
+          />
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+
+          <div class="user_c">
+            <label for="username_change" id="user">Username:</label>
+            <input type="text" id="username_change" autocomplete="off" />
+          </div>
+        </div>
+        <div id="email">
+          <label for="email_change" id="user">Email:</label>
+          <input type="email" id="email_change" autocomplete="new-password" />
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              margin-top: 20px;
+              gap: 10px;
+            "
+          >
+            <input
+              type="checkbox"
+              id="email_notifications"
+              name="email_notifications"
+            />
+            <label for="email_notifications" id="user"
+              >Email Notifications</label
+            >
+          </div>
+        </div>
+        <div
+          id="save_condition_display"
+          style="
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+          "
+        >
+        <div id="save_condition_sub">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="12" cy="12" r="10" fill="#22c55e" fill-opacity="0.15" />
+            <path
+              d="M8 12.3333L10.6667 15L16 9"
+              stroke="#22c55e"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <p style="color: white">Saved Successfully</p>
+        </div>
+          
+          <button id="save_profile">Save Changes</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- profile popup end -->
+
+    <!-- popup -->
+    <div id="popup_container">
+      <div id="popup">
+        <h2>What Should we Call you</h2>
+        <form
+          action=""
+          id="popup_form"
+          style="
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+          "
+        >
+          <input
+            type="text"
+            id="username_input"
+            placeholder="Enter Your Username"
+            required
+            style="width: 100%"
+          />
+          <button id="save_username" type="submit">Continue</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- side bar code start -->
+
+    <nav id="navbar">
+      <button id="hamburger_btn">
+        <div class="hamburger_icon">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </button>
+
+      <div id="navigation_btns" class="navigation_btns">
+        <ul id="nav_main">
+          <li id="nav_item" class="nav_item" data-target="dashboard">
+            <button class="nav_btn active">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                width="100"
+                height="100"
+                fill="white"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M 12 2.0996094 L 1 12 L 4 12 L 4 21 L 11 21 L 11 15 L 13 15 L 13 21 L 20 21 L 20 12 L 23 12 L 12 2.0996094 z M 12 4.7910156 L 18 10.191406 L 18 11 L 18 19 L 15 19 L 15 13 L 9 13 L 9 19 L 6 19 L 6 10.191406 L 12 4.7910156 z"
+                ></path>
+              </svg>
+            </button>
+            <p class="nav_pa">Dashboard</p>
+          </li>
+          <li id="nav_item" class="nav_item" data-target="weather">
+            <button class="nav_btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M17.5 19c2.5 0 4.5-2 4.5-4.5 0-2.3-1.7-4.2-3.9-4.5-1.1-3.1-4-5-7.1-5-3.6 0-6.6 2.6-7.4 6.1C1.6 11.6 0 13.4 0 15.5 0 17.4 1.6 19 3.5 19h14z"
+                />
+              </svg>
+            </button>
+            <p class="nav_pa">Calender</p>
+          </li>
+          <li id="nav_item" class="nav_item" data-target="maps">
+            <button class="nav_btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polygon
+                  points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"
+                ></polygon>
+                <line x1="8" y1="2" x2="8" y2="18"></line>
+                <line x1="16" y1="6" x2="16" y2="22"></line>
+              </svg>
+            </button>
+            <p class="nav_pa">Trip Planner</p>
+          </li>
+          <li id="nav_item" class="nav_item" data-target="forecast">
+            <button class="nav_btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="16"></line>
+                <line x1="8" y1="12" x2="16" y2="12"></line>
+              </svg>
+            </button>
+            <p class="nav_pa">Forecast</p>
+          </li>
+          <li id="nav_item">
+            <button class="nav_btn" class="settings_button" id="settings_btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                width="100"
+                height="100"
+                viewBox="0 0 50 50"
+                fill="white"
+                stroke="white"
+              >
+                <path
+                  d="M 22.205078 2 A 1.0001 1.0001 0 0 0 21.21875 2.8378906 L 20.246094 8.7929688 C 19.076509 9.1331971 17.961243 9.5922728 16.910156 10.164062 L 11.996094 6.6542969 A 1.0001 1.0001 0 0 0 10.708984 6.7597656 L 6.8183594 10.646484 A 1.0001 1.0001 0 0 0 6.7070312 11.927734 L 10.164062 16.873047 C 9.583454 17.930271 9.1142098 19.051824 8.765625 20.232422 L 2.8359375 21.21875 A 1.0001 1.0001 0 0 0 2.0019531 22.205078 L 2.0019531 27.705078 A 1.0001 1.0001 0 0 0 2.8261719 28.691406 L 8.7597656 29.742188 C 9.1064607 30.920739 9.5727226 32.043065 10.154297 33.101562 L 6.6542969 37.998047 A 1.0001 1.0001 0 0 0 6.7597656 39.285156 L 10.648438 43.175781 A 1.0001 1.0001 0 0 0 11.927734 43.289062 L 16.882812 39.820312 C 17.936999 40.39548 19.054994 40.857928 20.228516 41.201172 L 21.21875 47.164062 A 1.0001 1.0001 0 0 0 22.205078 48 L 27.705078 48 A 1.0001 1.0001 0 0 0 28.691406 47.173828 L 29.751953 41.1875 C 30.920633 40.838997 32.033372 40.369697 33.082031 39.791016 L 38.070312 43.291016 A 1.0001 1.0001 0 0 0 39.351562 43.179688 L 43.240234 39.287109 A 1.0001 1.0001 0 0 0 43.34375 37.996094 L 39.787109 33.058594 C 40.355783 32.014958 40.813915 30.908875 41.154297 29.748047 L 47.171875 28.693359 A 1.0001 1.0001 0 0 0 47.998047 27.707031 L 47.998047 22.207031 A 1.0001 1.0001 0 0 0 47.160156 21.220703 L 41.152344 20.238281 C 40.80968 19.078827 40.350281 17.974723 39.78125 16.931641 L 43.289062 11.933594 A 1.0001 1.0001 0 0 0 43.177734 10.652344 L 39.287109 6.7636719 A 1.0001 1.0001 0 0 0 37.996094 6.6601562 L 33.072266 10.201172 C 32.023186 9.6248101 30.909713 9.1579916 29.738281 8.8125 L 28.691406 2.828125 A 1.0001 1.0001 0 0 0 27.705078 2 L 22.205078 2 z M 23.056641 4 L 26.865234 4 L 27.861328 9.6855469 A 1.0001 1.0001 0 0 0 28.603516 10.484375 C 30.066026 10.848832 31.439607 11.426549 32.693359 12.185547 A 1.0001 1.0001 0 0 0 33.794922 12.142578 L 38.474609 8.7792969 L 41.167969 11.472656 L 37.835938 16.220703 A 1.0001 1.0001 0 0 0 37.796875 17.310547 C 38.548366 18.561471 39.118333 19.926379 39.482422 21.380859 A 1.0001 1.0001 0 0 0 40.291016 22.125 L 45.998047 23.058594 L 45.998047 26.867188 L 40.279297 27.871094 A 1.0001 1.0001 0 0 0 39.482422 28.617188 C 39.122545 30.069817 38.552234 31.434687 37.800781 32.685547 A 1.0001 1.0001 0 0 0 37.845703 33.785156 L 41.224609 38.474609 L 38.53125 41.169922 L 33.791016 37.84375 A 1.0001 1.0001 0 0 0 32.697266 37.808594 C 31.44975 38.567585 30.074755 39.148028 28.617188 39.517578 A 1.0001 1.0001 0 0 0 27.876953 40.3125 L 26.867188 46 L 23.052734 46 L 22.111328 40.337891 A 1.0001 1.0001 0 0 0 21.365234 39.53125 C 19.90185 39.170557 18.522094 38.59371 17.259766 37.835938 A 1.0001 1.0001 0 0 0 16.171875 37.875 L 11.46875 41.169922 L 8.7734375 38.470703 L 12.097656 33.824219 A 1.0001 1.0001 0 0 0 12.138672 32.724609 C 11.372652 31.458855 10.793319 30.079213 10.427734 28.609375 A 1.0001 1.0001 0 0 0 9.6328125 27.867188 L 4.0019531 26.867188 L 4.0019531 23.052734 L 9.6289062 22.117188 A 1.0001 1.0001 0 0 0 10.435547 21.373047 C 10.804273 19.898143 11.383325 18.518729 12.146484 17.255859 A 1.0001 1.0001 0 0 0 12.111328 16.164062 L 8.8261719 11.46875 L 11.523438 8.7734375 L 16.185547 12.105469 A 1.0001 1.0001 0 0 0 17.28125 12.148438 C 18.536908 11.394293 19.919867 10.822081 21.384766 10.462891 A 1.0001 1.0001 0 0 0 22.132812 9.6523438 L 23.056641 4 z M 25 17 C 20.593567 17 17 20.593567 17 25 C 17 29.406433 20.593567 33 25 33 C 29.406433 33 33 29.406433 33 25 C 33 20.593567 29.406433 17 25 17 z M 25 19 C 28.325553 19 31 21.674447 31 25 C 31 28.325553 28.325553 31 25 31 C 21.674447 31 19 28.325553 19 25 C 19 21.674447 21.674447 19 25 19 z"
+                ></path>
+              </svg>
+            </button>
+            <p
+              class="nav_pa"
+              class="settings_button"
+              role="button"
+              style="cursor: pointer"
+            >
+              Settings
+            </p>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- side bar ends-->
+
+    <!-- main section  -->
+
+    <main id="main_container">
+      <!-- topbar start -->
+
+      <section id="topbar">
+        <h2>Weather Dashboard</h2>
+        <div
+          class="topbar_con"
+          style="display: flex; gap: 2rem; position: relative"
+        >
+          <div id="search_container">
+            <input
+              type="text"
+              placeholder="Search for Cities.."
+              id="city_search"
+            />
+            <button id="search">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                fill="none"
+                stroke="white"
+                opacity="0.5"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+            <div id="suggestion-box" class="hidden"></div>
+          </div>
+
+          <button id="location_button" title="Change Location">
+            <div id="location_svg_cont">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <p id="current_location">Current</p>
+          </button>
+
+          <div id="location_dropdown" class="location_dropdown">
+            <div class="location-header">
+              <p>Select City</p>
+            </div>
+            <div id="cities_list" class="cities-list">
+              <!-- Cities will be added here dynamically -->
+            </div>
+            <div class="location-add">
+              <button id="add_city_btn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                <p>Add City</p>
+              </button>
+            </div>
+          </div>
+
+          <button id="profile_button">
+            <div id="svg_cont">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <img src="" alt="" id="profile_image2" />
+            </div>
+            <p id="username">Username</p>
+          </button>
+          <div id="dropdown" class="dropdown">
+            <div class="dropdown-top">
+              <div id="svg_cont">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <img src="" alt="" id="profile_image3" />
+                <div class="circle"></div>
+              </div>
+              <p id="username2">Username</p>
+            </div>
+            <div id="profile_completion">
+              <div style="display: flex; justify-content: space-between">
+                <p>Profile Completion</p>
+                <p id="completion-percent">85%</p>
+              </div>
+              <div id="completion-status">
+                <div id="line"></div>
+              </div>
+            </div>
+            <div class="line"></div>
+            <div
+              class="viewprofile"
+              id="open_profile_dropdown"
+              role="button"
+              tabindex="0"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <p>View Profile</p>
+            </div>
+            <div
+              class="settings settings_button"
+              id="settings_prof"
+              class="settings-toggle-div"
+              tabindex="0"
+              role="button"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                width="20"
+                height="20"
+                viewBox="0 0 50 50"
+                fill="white"
+                stroke="white"
+              >
+                <path
+                  d="M 22.205078 2 A 1.0001 1.0001 0 0 0 21.21875 2.8378906 L 20.246094 8.7929688 C 19.076509 9.1331971 17.961243 9.5922728 16.910156 10.164062 L 11.996094 6.6542969 A 1.0001 1.0001 0 0 0 10.708984 6.7597656 L 6.8183594 10.646484 A 1.0001 1.0001 0 0 0 6.7070312 11.927734 L 10.164062 16.873047 C 9.583454 17.930271 9.1142098 19.051824 8.765625 20.232422 L 2.8359375 21.21875 A 1.0001 1.0001 0 0 0 2.0019531 22.205078 L 2.0019531 27.705078 A 1.0001 1.0001 0 0 0 2.8261719 28.691406 L 8.7597656 29.742188 C 9.1064607 30.920739 9.5727226 32.043065 10.154297 33.101562 L 6.6542969 37.998047 A 1.0001 1.0001 0 0 0 6.7597656 39.285156 L 10.648438 43.175781 A 1.0001 1.0001 0 0 0 11.927734 43.289062 L 16.882812 39.820312 C 17.936999 40.39548 19.054994 40.857928 20.228516 41.201172 L 21.21875 47.164062 A 1.0001 1.0001 0 0 0 22.205078 48 L 27.705078 48 A 1.0001 1.0001 0 0 0 28.691406 47.173828 L 29.751953 41.1875 C 30.920633 40.838997 32.033372 40.369697 33.082031 39.791016 L 38.070312 43.291016 A 1.0001 1.0001 0 0 0 39.351562 43.179688 L 43.240234 39.287109 A 1.0001 1.0001 0 0 0 43.34375 37.996094 L 39.787109 33.058594 C 40.355783 32.014958 40.813915 30.908875 41.154297 29.748047 L 47.171875 28.693359 A 1.0001 1.0001 0 0 0 47.998047 27.707031 L 47.998047 22.207031 A 1.0001 1.0001 0 0 0 47.160156 21.220703 L 41.152344 20.238281 C 40.80968 19.078827 40.350281 17.974723 39.78125 16.931641 L 43.289062 11.933594 A 1.0001 1.0001 0 0 0 43.177734 10.652344 L 39.287109 6.7636719 A 1.0001 1.0001 0 0 0 37.996094 6.6601562 L 33.072266 10.201172 C 32.023186 9.6248101 30.909713 9.1579916 29.738281 8.8125 L 28.691406 2.828125 A 1.0001 1.0001 0 0 0 27.705078 2 L 22.205078 2 z M 23.056641 4 L 26.865234 4 L 27.861328 9.6855469 A 1.0001 1.0001 0 0 0 28.603516 10.484375 C 30.066026 10.848832 31.439607 11.426549 32.693359 12.185547 A 1.0001 1.0001 0 0 0 33.794922 12.142578 L 38.474609 8.7792969 L 41.167969 11.472656 L 37.835938 16.220703 A 1.0001 1.0001 0 0 0 37.796875 17.310547 C 38.548366 18.561471 39.118333 19.926379 39.482422 21.380859 A 1.0001 1.0001 0 0 0 40.291016 22.125 L 45.998047 23.058594 L 45.998047 26.867188 L 40.279297 27.871094 A 1.0001 1.0001 0 0 0 39.482422 28.617188 C 39.122545 30.069817 38.552234 31.434687 37.800781 32.685547 A 1.0001 1.0001 0 0 0 37.845703 33.785156 L 41.224609 38.474609 L 38.53125 41.169922 L 33.791016 37.84375 A 1.0001 1.0001 0 0 0 32.697266 37.808594 C 31.44975 38.567585 30.074755 39.148028 28.617188 39.517578 A 1.0001 1.0001 0 0 0 27.876953 40.3125 L 26.867188 46 L 23.052734 46 L 22.111328 40.337891 A 1.0001 1.0001 0 0 0 21.365234 39.53125 C 19.90185 39.170557 18.522094 38.59371 17.259766 37.835938 A 1.0001 1.0001 0 0 0 16.171875 37.875 L 11.46875 41.169922 L 8.7734375 38.470703 L 12.097656 33.824219 A 1.0001 1.0001 0 0 0 12.138672 32.724609 C 11.372652 31.458855 10.793319 30.079213 10.427734 28.609375 A 1.0001 1.0001 0 0 0 9.6328125 27.867188 L 4.0019531 26.867188 L 4.0019531 23.052734 L 9.6289062 22.117188 A 1.0001 1.0001 0 0 0 10.435547 21.373047 C 10.804273 19.898143 11.383325 18.518729 12.146484 17.255859 A 1.0001 1.0001 0 0 0 12.111328 16.164062 L 8.8261719 11.46875 L 11.523438 8.7734375 L 16.185547 12.105469 A 1.0001 1.0001 0 0 0 17.28125 12.148438 C 18.536908 11.394293 19.919867 10.822081 21.384766 10.462891 A 1.0001 1.0001 0 0 0 22.132812 9.6523438 L 23.056641 4 z M 25 17 C 20.593567 17 17 20.593567 17 25 C 17 29.406433 20.593567 33 25 33 C 29.406433 33 33 29.406433 33 25 C 33 20.593567 29.406433 17 25 17 z M 25 19 C 28.325553 19 31 21.674447 31 25 C 31 28.325553 28.325553 31 25 31 C 21.674447 31 19 28.325553 19 25 C 19 21.674447 21.674447 19 25 19 z"
+                ></path>
+              </svg>
+              <p class="settings_button">Settings</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- topbar ends -->
+
+      <!-- main sections starts here -->
+
+      <!-- dashboard section  -->
+
+      <section id="dashboard" class="section active">
+        <div class="main_display">
+          <div class="blue"></div>
+          <div class="purple"></div>
+          <div class="left">
+            <div class="location">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <h2 id="location_display"></h2>
+            </div>
+            <h2 id="temp_display">26°C</h2>
+            <p id="weather_status">Partly Cloudy</p>
+            <p id="date_display">Thursday March 5</p>
+            <p
+              id="last_updated"
+              style="font-size: 0.85rem; opacity: 0.6; margin-top: 10px"
+            >
+              Last updated: just now
+            </p>
+          </div>
+          <div class="right"><img src="assets/images/cloudy.png" alt="" /></div>
+        </div>
+
+        <!-- air index -->
+
+        <div class="airindex">
+          <div class="top">
+            <h2>Air Quality Index</h2>
+            <svg
+              width="40"
+              height="40"
+              viewBox="0 0 100 100"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect width="100" height="100" fill="#00C853" rx="22" />
+
+              <g
+                fill="none"
+                stroke="white"
+                stroke-width="5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M22 78 L30 70" stroke-width="5" />
+
+                <path
+                  d="M30 70 
+             C 30 70, 20 60, 28 45 
+             C 35 30, 55 22, 75 22 
+             C 75 22, 80 45, 65 62 
+             C 52 78, 30 70, 30 70 Z"
+                />
+
+                <path d="M30 70 C 42 58, 58 42, 75 22" stroke-width="4.5" />
+              </g>
+            </svg>
+          </div>
+          <div id="air_index_status">
+            <h1 id="air_index_value">45</h1>
+            <p id="index_status">Good</p>
+          </div>
+          <div class="infos">
+            <div id="PM25" class="infos_box">
+              <p>PM2.5</p>
+              <div style="display: flex; align-items: flex-end; gap: 5px">
+                <p id="PM25_Value" class="infos_value">12.5</p>
+                <p>ug/m<sup>3</sup></p>
+              </div>
+            </div>
+            <div id="PM10" class="infos_box">
+              <p>PM10</p>
+              <div style="display: flex; align-items: flex-end; gap: 5px">
+                <p id="PM25_Value" class="infos_value">28.3</p>
+                <p>ug/m<sup>3</sup></p>
+              </div>
+            </div>
+            <div id="O3" class="infos_box">
+              <p>O<sub>3</sub></p>
+              <div style="display: flex; align-items: flex-end; gap: 5px">
+                <p id="PM25_Value" class="infos_value">48</p>
+                <p>ppb</p>
+              </div>
+            </div>
+            <div id="NO2" class="infos_box">
+              <p>NO<sub>2</sub></p>
+              <div style="display: flex; align-items: flex-end; gap: 5px">
+                <p id="PM25_Value" class="infos_value">23</p>
+                <p>ppb</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- data  -->
+
+        <div class="data">
+          <div class="top">
+            <div class="top_item">
+              <div>
+                <h2>UV Index</h2>
+                <div class="data_icon1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M12 2v4m0 12v4m6.364-10.364l2.828-2.828M2.808 8.464l2.828 2.828M12 10a4 4 0 1 0 0 8h8a4 4 0 0 0-4-4V10a4 4 0 0 0-4-4V10z"
+                    />
+                    <line x1="2" y1="20" x2="22" y2="20"></line>
+                  </svg>
+                </div>
+              </div>
+              <h1 id="uv_index_val">8</h1>
+              <p id="uv_status">Very High</p>
+            </div>
+            <div class="top_item">
+              <div>
+                <h2>Wind Speed</h2>
+                <div class="data_icon2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-wind"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M12.5 2A2.5 2.5 0 0 0 10 4.5a.5.5 0 0 1-1 0A3.5 3.5 0 1 1 12.5 8H.5a.5.5 0 0 1 0-1h12a2.5 2.5 0 0 0 0-5m-7 1a1 1 0 0 0-1 1 .5.5 0 0 1-1 0 2 2 0 1 1 2 2h-5a.5.5 0 0 1 0-1h5a1 1 0 0 0 0-2M0 9.5A.5.5 0 0 1 .5 9h10.042a3 3 0 1 1-3 3 .5.5 0 0 1 1 0 2 2 0 1 0 2-2H.5a.5.5 0 0 1-.5-.5"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <h1 id="wind_val">15 km/h</h1>
+              <p id="wind_dir">Northwest direction</p>
+            </div>
+            <div class="top_item">
+              <div>
+                <h2>Humidity</h2>
+                <div class="data_icon1">
+                  <svg
+                    viewBox="0 0 16 16"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 16a6 6 0 0 0 6-6c0-1.657-1.343-3-3-3s-3 1.343-3 3c0 1.657 1.343 3 3 3z"
+                      opacity=".5"
+                    />
+                    <path d="M8 0a8 8 0 0 0-8 8c0 4.418 3.582 8 8 8V0z" />
+                  </svg>
+                </div>
+              </div>
+              <h1 id="humidity_val">75%</h1>
+              <p>Normal Levels</p>
+            </div>
+            <div class="top_item">
+              <div>
+                <h2>Pressure</h2>
+                <div class="data_icon2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="16"
+                    height="16"
+                    fill="none"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="12" x2="16" y2="8"></line>
+                    <path d="M8.5 16.5A5 5 0 0 1 12 7"></path>
+                  </svg>
+                </div>
+              </div>
+              <h1 id="pressure_val">1015 hPa</h1>
+              <p>Stable</p>
+            </div>
+          </div>
+          <div class="bottom">
+            <h2 id="data_bottom_head">24 Hour Forecast</h2>
+            <div id="slider_container">
+              <div class="slider_item" id="item12AM">
+                <p class="slider_time">12 AM</p>
+                <svg
+                  class="slider_icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 100 100"
+                  style="color: white"
+                >
+                  <circle cx="50" cy="50" r="25" fill="white" opacity="0.8" />
+                  <path
+                    d="M50 10 v15 M50 75 v15 M10 50 h15 M75 50 h15"
+                    stroke="white"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <p class="slider_temp">28°C</p>
+                <p class="slider_condition">Sunny</p>
+
+                <p class="slider_precip">10%</p>
+              </div>
+              <div class="slider_item" id="item2AM">
+                <p class="slider_time">2 AM</p>
+                <svg
+                  class="slider_icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 100 100"
+                  style="color: white"
+                >
+                  <circle cx="50" cy="50" r="25" fill="white" opacity="0.8" />
+                  <path
+                    d="M50 10 v15 M50 75 v15 M10 50 h15 M75 50 h15"
+                    stroke="white"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <p class="slider_temp">27°C</p>
+                <p class="slider_condition">Sunny</p>
+
+                <p class="slider_precip">5%</p>
+              </div>
+              <div class="slider_item" id="item3AM">
+                <p class="slider_time">3 AM</p>
+                <svg
+                  class="slider_icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 100 100"
+                  style="color: white"
+                >
+                  <circle cx="50" cy="50" r="20" fill="rgba(255,255,255,0.7)" />
+                  <circle cx="35" cy="35" r="8" fill="white" />
+                </svg>
+                <p class="slider_temp">24°C</p>
+                <p class="slider_condition">Clear</p>
+
+                <p class="slider_precip">0%</p>
+              </div>
+              <div class="slider_item" id="item4AM">
+                <p class="slider_time">4 AM</p>
+                <svg
+                  class="slider_icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 100 100"
+                  style="color: white"
+                >
+                  <circle cx="50" cy="50" r="20" fill="rgba(255,255,255,0.7)" />
+                  <circle cx="35" cy="35" r="8" fill="white" />
+                </svg>
+                <p class="slider_temp">23°C</p>
+                <p class="slider_condition">Clear</p>
+
+                <p class="slider_precip">0%</p>
+              </div>
+              <div class="slider_item" id="item5AM">
+                <p class="slider_time">5 AM</p>
+                <svg
+                  class="slider_icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 100 100"
+                  style="color: white"
+                >
+                  <circle cx="50" cy="50" r="20" fill="rgba(255,255,255,0.6)" />
+                  <ellipse
+                    cx="50"
+                    cy="50"
+                    rx="30"
+                    ry="8"
+                    fill="none"
+                    stroke="rgba(255,255,255,0.7)"
+                    stroke-width="2"
+                  />
+                </svg>
+                <p class="slider_temp">22°C</p>
+                <p class="slider_condition">Cloudy</p>
+
+                <p class="slider_precip">15%</p>
+              </div>
+              <div class="slider_item" id="item6AM">
+                <p class="slider_time">6 AM</p>
+                <svg
+                  class="slider_icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 100 100"
+                  style="color: white"
+                >
+                  <circle cx="50" cy="50" r="20" fill="rgba(255,255,255,0.6)" />
+                  <ellipse
+                    cx="50"
+                    cy="50"
+                    rx="30"
+                    ry="8"
+                    fill="none"
+                    stroke="rgba(255,255,255,0.7)"
+                    stroke-width="2"
+                  />
+                </svg>
+                <p class="slider_temp">21°C</p>
+                <p class="slider_condition">Cloudy</p>
+
+                <p class="slider_precip">20%</p>
+              </div>
+              <div class="slider_item" id="item7AM">
+                <p class="slider_time">7 AM</p>
+                <svg
+                  class="slider_icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 100 100"
+                  style="color: white"
+                >
+                  <circle cx="50" cy="50" r="25" fill="white" opacity="0.8" />
+                  <path
+                    d="M50 10 v15 M50 75 v15 M10 50 h15 M75 50 h15"
+                    stroke="white"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <p class="slider_temp">26°C</p>
+                <p class="slider_condition">Sunny</p>
+
+                <p class="slider_precip">8%</p>
+              </div>
+              <div class="slider_item" id="item8AM">
+                <p class="slider_time">8 AM</p>
+                <svg
+                  class="slider_icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 100 100"
+                  style="color: white"
+                >
+                  <circle cx="50" cy="50" r="25" fill="white" opacity="0.8" />
+                  <path
+                    d="M50 10 v15 M50 75 v15 M10 50 h15 M75 50 h15"
+                    stroke="white"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <p class="slider_temp">28°C</p>
+                <p class="slider_condition">Sunny</p>
+
+                <p class="slider_precip">10%</p>
+              </div>
+              <div class="slider_item" id="item9AM">
+                <p class="slider_time">9 AM</p>
+                <svg
+                  class="slider_icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 100 100"
+                  style="color: white"
+                >
+                  <circle cx="50" cy="50" r="25" fill="white" opacity="0.8" />
+                  <path
+                    d="M50 10 v15 M50 75 v15 M10 50 h15 M75 50 h15"
+                    stroke="white"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <p class="slider_temp">30°C</p>
+                <p class="slider_condition">Sunny</p>
+
+                <p class="slider_precip">5%</p>
+              </div>
+              <div class="slider_item" id="item10AM">
+                <p class="slider_time">10 AM</p>
+                <svg
+                  class="slider_icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 100 100"
+                  style="color: white"
+                >
+                  <circle cx="50" cy="50" r="25" fill="white" opacity="0.8" />
+                  <path
+                    d="M50 10 v15 M50 75 v15 M10 50 h15 M75 50 h15"
+                    stroke="white"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <p class="slider_temp">32°C</p>
+                <p class="slider_condition">Sunny</p>
+
+                <p class="slider_precip">3%</p>
+              </div>
+              <div class="slider_item" id="item11AM">
+                <p class="slider_time">11 AM</p>
+                <svg
+                  class="slider_icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 100 100"
+                  style="color: white"
+                >
+                  <circle cx="50" cy="50" r="25" fill="white" opacity="0.8" />
+                  <path
+                    d="M50 10 v15 M50 75 v15 M10 50 h15 M75 50 h15"
+                    stroke="white"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <p class="slider_temp">33°C</p>
+                <p class="slider_condition">Sunny</p>
+
+                <p class="slider_precip">2%</p>
+              </div>
+              <div class="slider_item" id="item12PM">
+                <p class="slider_time">12 PM</p>
+                <svg
+                  class="slider_icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 100 100"
+                  style="color: white"
+                >
+                  <circle cx="50" cy="50" r="25" fill="white" opacity="0.8" />
+                  <path
+                    d="M50 10 v15 M50 75 v15 M10 50 h15 M75 50 h15"
+                    stroke="white"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <p class="slider_temp">35°C</p>
+                <p class="slider_condition">Sunny</p>
+
+                <p class="slider_precip">1%</p>
+              </div>
+              <div class="slider_item" id="item1PM">
+                <p class="slider_time">1 PM</p>
+                <svg
+                  class="slider_icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 100 100"
+                  style="color: white"
+                >
+                  <circle cx="50" cy="50" r="25" fill="white" opacity="0.8" />
+                  <path
+                    d="M50 10 v15 M50 75 v15 M10 50 h15 M75 50 h15"
+                    stroke="white"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <p class="slider_temp">34°C</p>
+                <p class="slider_condition">Sunny</p>
+
+                <p class="slider_precip">2%</p>
+              </div>
+              <div class="slider_item" id="item2PM">
+                <p class="slider_time">2 PM</p>
+                <svg
+                  class="slider_icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 100 100"
+                  style="color: white"
+                >
+                  <circle cx="50" cy="50" r="25" fill="white" opacity="0.8" />
+                  <path
+                    d="M50 10 v15 M50 75 v15 M10 50 h15 M75 50 h15"
+                    stroke="white"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <p class="slider_temp">32°C</p>
+                <p class="slider_condition">Sunny</p>
+
+                <p class="slider_precip">3%</p>
+              </div>
+              <div class="slider_item" id="item3PM">
+                <p class="slider_time">3 PM</p>
+                <svg
+                  class="slider_icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 100 100"
+                  style="color: white"
+                >
+                  <circle cx="50" cy="50" r="20" fill="rgba(255,255,255,0.6)" />
+                  <ellipse
+                    cx="50"
+                    cy="50"
+                    rx="30"
+                    ry="8"
+                    fill="none"
+                    stroke="rgba(255,255,255,0.7)"
+                    stroke-width="2"
+                  />
+                </svg>
+                <p class="slider_temp">30°C</p>
+                <p class="slider_condition">Cloudy</p>
+
+                <p class="slider_precip">25%</p>
+              </div>
+              <div class="slider_item" id="item4PM">
+                <p class="slider_time">4 PM</p>
+                <svg
+                  class="slider_icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 100 100"
+                  style="color: white"
+                >
+                  <circle cx="50" cy="50" r="20" fill="rgba(255,255,255,0.6)" />
+                  <ellipse
+                    cx="50"
+                    cy="50"
+                    rx="30"
+                    ry="8"
+                    fill="none"
+                    stroke="rgba(255,255,255,0.7)"
+                    stroke-width="2"
+                  />
+                </svg>
+                <p class="slider_temp">28°C</p>
+                <p class="slider_condition">Cloudy</p>
+
+                <p class="slider_precip">30%</p>
+              </div>
+              <div class="slider_item" id="item5PM">
+                <p class="slider_time">5 PM</p>
+                <svg
+                  class="slider_icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 100 100"
+                  style="color: white"
+                >
+                  <circle cx="50" cy="50" r="20" fill="rgba(255,255,255,0.5)" />
+                  <path
+                    d="M30 60 Q50 75 70 60"
+                    stroke="rgba(255,255,255,0.8)"
+                    stroke-width="3"
+                    fill="none"
+                  />
+                </svg>
+                <p class="slider_temp">26°C</p>
+                <p class="slider_condition">Rainy</p>
+
+                <p class="slider_precip">60%</p>
+              </div>
+              <div class="slider_item" id="item6PM">
+                <p class="slider_time">6 PM</p>
+                <svg
+                  class="slider_icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 100 100"
+                  style="color: white"
+                >
+                  <circle cx="50" cy="50" r="20" fill="rgba(255,255,255,0.5)" />
+                  <path
+                    d="M30 60 Q50 75 70 60"
+                    stroke="rgba(255,255,255,0.8)"
+                    stroke-width="3"
+                    fill="none"
+                  />
+                </svg>
+                <p class="slider_temp">24°C</p>
+                <p class="slider_condition">Rainy</p>
+
+                <p class="slider_precip">65%</p>
+              </div>
+              <div class="slider_item" id="item7PM">
+                <p class="slider_time">7 PM</p>
+                <svg
+                  class="slider_icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 100 100"
+                  style="color: white"
+                >
+                  <circle cx="50" cy="50" r="20" fill="rgba(255,255,255,0.7)" />
+                  <circle cx="35" cy="35" r="8" fill="white" />
+                </svg>
+                <p class="slider_temp">22°C</p>
+                <p class="slider_condition">Clear</p>
+
+                <p class="slider_precip">35%</p>
+              </div>
+              <div class="slider_item" id="item8PM">
+                <p class="slider_time">8 PM</p>
+                <svg
+                  class="slider_icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 100 100"
+                  style="color: white"
+                >
+                  <circle cx="50" cy="50" r="20" fill="rgba(255,255,255,0.7)" />
+                  <circle cx="35" cy="35" r="8" fill="white" />
+                </svg>
+                <p class="slider_temp">20°C</p>
+                <p class="slider_condition">Clear</p>
+
+                <p class="slider_precip">20%</p>
+              </div>
+              <div class="slider_item" id="item9PM">
+                <p class="slider_time">9 PM</p>
+                <svg
+                  class="slider_icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 100 100"
+                  style="color: white"
+                >
+                  <circle cx="50" cy="50" r="20" fill="rgba(255,255,255,0.7)" />
+                  <circle cx="35" cy="35" r="8" fill="white" />
+                </svg>
+                <p class="slider_temp">19°C</p>
+                <p class="slider_condition">Clear</p>
+
+                <p class="slider_precip">10%</p>
+              </div>
+              <div class="slider_item" id="item10PM">
+                <p class="slider_time">10 PM</p>
+                <svg
+                  class="slider_icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 100 100"
+                  style="color: white"
+                >
+                  <circle cx="50" cy="50" r="20" fill="rgba(255,255,255,0.7)" />
+                  <circle cx="35" cy="35" r="8" fill="white" />
+                </svg>
+                <p class="slider_temp">18°C</p>
+                <p class="slider_condition">Clear</p>
+
+                <p class="slider_precip">5%</p>
+              </div>
+              <div class="slider_item" id="item11PM">
+                <p class="slider_time">11 PM</p>
+                <svg
+                  class="slider_icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 100 100"
+                  style="color: white"
+                >
+                  <circle cx="50" cy="50" r="20" fill="rgba(255,255,255,0.7)" />
+                  <circle cx="35" cy="35" r="8" fill="white" />
+                </svg>
+                <p class="slider_temp">17°C</p>
+                <p class="slider_condition">Clear</p>
+
+                <p class="slider_precip">3%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="info">
+          <h2 id="info_head">More Details</h2>
+          <div id="info_main">
+            <div class="info_item" id="FeelsLike">
+              <p>Feels Like</p>
+              <h2 id="feels_like">28°C</h2>
+            </div>
+            <div class="info_item" id="Visibility">
+              <p>Visibility</p>
+              <h2 id="visibility_val">9.8 km</h2>
+            </div>
+            <div class="info_item" id="Sunrise">
+              <p>Sunrise</p>
+              <h2 id="sunrise_val">6:24 AM</h2>
+            </div>
+            <div class="info_item" id="Sunset">
+              <p>Sunset</p>
+              <h2 id="sunset_val">6:48 PM</h2>
+            </div>
+            <div class="info_item" id="clouds">
+              <p>Clouds</p>
+              <h2 id="clouds_val">42%</h2>
+            </div>
+            <div class="info_item" id="Dewpoint">
+              <p>Dew Point</p>
+              <h2 id="dewpoint_val">18°C</h2>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- weather section  -->
+
+      <section id="weather" class="section">Calender</section>
+
+      <!-- maps section  -->
+
+      <section id="maps" class="section">Trip Planner</section>
+
+      <!-- forecast section  -->
+
+      <section id="forecast" class="section">FORECAST</section>
+    </main>
+  </body>
+</html>
